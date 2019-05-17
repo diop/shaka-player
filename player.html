@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="dist/shaka-player.compiled.debug.js"></script>
+        <script src="https://src.litix.io/core/2/mux.js"></script>
+        <script src="app.js"></script>
+    </heads>
+    <body>
+        <script>
+            window.muxPlayerInitTime = Date.now();
+        </script>
+        <video id="video"
+               width="640"
+               poster="//shaka-player-demo.appspot.com/assets/poster.jpg"
+               controls autoplay></video>
+        <script>
+            if (typeof mux !== 'undefined') {
+                mux.monitor('#video', {
+                    debug: true,
+                    data: {
+                        env_key: 'nt9tj2pbqtouc6ehfspjs0hk1', // required
+
+                        // Metadata
+                        player_name: 'Shaka Player',
+                        player_init_time: window.muxPlayerInitiTime // ex: 1451606400000
+                        // ... room for more metadata
+                    }
+                });
+            }
+        </script>
+    </body>
+</html>
